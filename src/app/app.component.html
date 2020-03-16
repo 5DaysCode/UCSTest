@@ -1,21 +1,107 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">REST API -- Test.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Kontakt</h4>
+          <ul class="list-unstyled">
+
+            <a href="mailto:alem.bristric@gmail.com" class="text-white">Alem Bristric</a>.<br>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <i class="fa fa-camera-retro">&nbsp;<strong>Album</strong></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Album</h1>
+      <p class="lead  text-muted">Done by: 5DaysCode for UCS AB</p>
+    </div>
+  </section>
+</main>
+
+<div class="container">
+  <mat-spinner *ngIf="isLoadingAlbum"></mat-spinner>
+
+  <div class="row">
+    <div class=col-md-12>
+      <h4>Select Album ID</h4>
+      <div class="custom-dropdown">
+        <select (change)="getSelectedAlbumPhotoData($event)">
+          <option *ngFor="let albumnId of albums">
+            {{albumnId.id}}
+          </option>
+        </select>
+
+      </div>
+
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col">
+    <mat-spinner *ngIf="isLoadingPhotos"></mat-spinner>
+  </div>
+  <div class="col"></div>
+</div>
+
+
+<div class=" album- py-5 bg-light">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let photo of photos">
+        <div class="card mb-4 box-shadow">
+          <div class="card-body">
+            <p class="card-text">{{photo.title}}</p>
+          </div>
+          <img [src]="photo.url" class="card-img-top" [alt]="photo.title">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <!-- Ingen funktionallitet enbart för utseende -->
+              <button type="button" class="btn btn-sm btn-outline-secondary">Visa</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Editera</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="footer">
+  <p class="float-right"></p>
+  <p>UCS Test with Album example &copy; JSONPlaceholder - Fake online REST API for
+    developers on placeholder.typicode.com
+  </p>
+  <p>Done by: 5DaysCode</p>
+
+</div>
 
 <router-outlet></router-outlet>

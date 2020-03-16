@@ -1,6 +1,29 @@
-# UCS
+# UCS - Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+
+## Clone the repo
+
+git clone https://github.com/5DaysCode/UCSTest.git
+cd Your-Project map -> project
+
+## Install npm packages
+
+Install the npm packages described in the package.json and verify that it works:
+
+npm install
+npm start
+
+The npm start command builds (compiles TypeScript and copies assets) the application into dist/, watches for changes to the source files, and runs lite-server on port 3000.
+Shut it down manually with Ctrl-C.
+
+## npm scripts
+
+npm start - runs the TypeScript compiler, asset copier, and a server at the same time, all three in "watch mode".
+npm run build - runs the TypeScript compiler and asset copier once.
+npm run build:watch - runs the TypeScript compiler and asset copier in "watch mode"; when changes occur to source files, they will be recompiled or copied into dist/.
+npm run lint - runs tslint on the project files.
+npm run serve - runs lite-server.
 
 ## Development server
 
